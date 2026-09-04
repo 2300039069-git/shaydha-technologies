@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="brand-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="50%" stop-color="#6366F1"/>
+      <stop offset="100%" stop-color="#4F46E5"/>
+    </linearGradient>
+    <linearGradient id="glow-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#818CF8" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#38BDF8" stop-opacity="0.2"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background container for favicon visibility -->
+  <rect width="64" height="64" rx="14" fill="#08090D"/>
+  <rect width="64" height="64" rx="14" stroke="rgba(255,255,255,0.08)" stroke-width="1.5"/>
+
+  <!-- Abstract Geometric Mark: Digital Architecture Nexus -->
+  <g transform="translate(32, 32)">
+    <!-- Outer interconnected geometric facets -->
+    <path d="M0 -19 L16.45 -9.5 L16.45 9.5 L0 19 L-16.45 9.5 L-16.45 -9.5 Z" 
+          stroke="url(#brand-grad)" stroke-width="2.5" stroke-linejoin="round" fill="none" opacity="0.4"/>
+          
+    <!-- Inner faceted geometry (Nexus Cube/Hex Core) -->
+    <!-- Top Rhombus -->
+    <path d="M0 -15 L13 -7.5 L0 0 L-13 -7.5 Z" 
+          fill="url(#brand-grad)" opacity="0.95"/>
+          
+    <!-- Right Facet -->
+    <path d="M0 0 L13 -7.5 L13 7.5 L0 15 Z" 
+          fill="url(#brand-grad)" opacity="0.75"/>
+          
+    <!-- Left Facet -->
+    <path d="M0 0 L0 15 L-13 7.5 L-13 -7.5 Z" 
+          fill="url(#brand-grad)" opacity="0.55"/>
+
+    <!-- Central Quantum Core Beacon -->
+    <circle cx="0" cy="0" r="2.5" fill="#FFFFFF"/>
+    <circle cx="0" cy="0" r="5" stroke="#38BDF8" stroke-width="1" opacity="0.8"/>
+  </g>
+</svg>
