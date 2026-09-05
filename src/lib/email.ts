@@ -102,7 +102,7 @@ export async function sendCustomerAutoReplyEmail({
 
         <!-- Action Buttons -->
         <div style="margin: 28px 0 10px; text-align: center;">
-          <a href="https://wa.me/919876543210?text=Hi%20SHAYDHA,%20I%20just%20submitted%20a%20project%20enquiry" 
+          <a href="https://wa.me/917569802300?text=Hi%20SHAYDHA,%20I%20just%20submitted%20a%20project%20enquiry" 
              style="background: #25d366; color: #ffffff; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 13px; display: inline-block; margin-right: 10px; box-shadow: 0 4px 12px rgba(37,211,102,0.3);">
             Chat on WhatsApp →
           </a>

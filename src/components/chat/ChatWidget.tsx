@@ -509,7 +509,7 @@ export const ChatWidget: React.FC = () => {
                     </label>
                     <input
                       type="tel"
-                      placeholder="+91 98765 43210"
+                      placeholder="+91 75698 02300"
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
                       className="w-full text-xs px-2.5 py-1.5 rounded-lg bg-slate-50 dark:bg-[#0A0C13] border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white focus:outline-none focus:border-brand-500"

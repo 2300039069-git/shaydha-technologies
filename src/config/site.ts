@@ -9,9 +9,9 @@ export const SITE_CONFIG = {
 
   contact: {
     email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "shaydhatechnologies@gmail.com",
-    phone: process.env.NEXT_PUBLIC_PHONE || "+91 98765 43210",
-    phoneClean: "+919876543210",
-    whatsappNumber: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "919876543210",
+    phone: process.env.NEXT_PUBLIC_PHONE || "+91 75698 02300",
+    phoneClean: "+917569802300",
+    whatsappNumber: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "917569802300",
     address: "Bengaluru & Hyderabad, India",
     workingHours: "Mon - Sat: 9:00 AM - 7:00 PM IST",
     availability: "Available for new projects",
@@ -37,7 +37,7 @@ export const SITE_CONFIG = {
       const msg = encodeURIComponent(
         customMessage || "Hi SHAYDHA TECHNOLOGIES, I would like to discuss a project."
       );
-      const number = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "919876543210";
+      const number = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "917569802300";
       return `https://wa.me/${number}?text=${msg}`;
     },
   },
