@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, ArrowUpRight, MessageSquare } from "lucide-react";
+import { Menu, X, ArrowUpRight, MessageSquare, Sparkles } from "lucide-react";
 import { Logo } from "@/components/brand/Logo";
 import { Button } from "@/components/ui/Button";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
@@ -28,11 +28,28 @@ export const Navbar: React.FC = () => {
 
   return (
     <>
+      {/* Top Free Demo Announcement Ribbon */}
+      <div className="bg-gradient-to-r from-[#0d1024] via-[#161a36] to-[#0d1024] text-white py-2 px-4 text-center text-[11px] sm:text-xs font-mono relative z-50 border-b border-cyan-500/25 shadow-sm flex items-center justify-center flex-wrap gap-x-2 gap-y-1">
+        <span className="inline-flex items-center gap-1.5 font-black text-amber-300 tracking-wide">
+          <Sparkles size={13} className="text-amber-300 animate-pulse" />
+          <span>FREE LIVE DEMO AVAILABLE:</span>
+        </span>
+        <span className="text-slate-300 hidden sm:inline">
+          Test-drive our live prototypes & architecture capabilities before committing.
+        </span>
+        <Link
+          href="/contact?demo=true"
+          className="font-bold underline text-cyan-300 hover:text-white transition-colors inline-flex items-center gap-1 ml-1"
+        >
+          Book 100% Free Demo <ArrowUpRight size={13} />
+        </Link>
+      </div>
+
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`sticky top-0 left-0 right-0 z-40 transition-all duration-300 ${
           isScrolled
-            ? "py-3 bg-white/90 dark:bg-[#08090D]/85 backdrop-blur-xl border-b border-slate-200/80 dark:border-white/[0.08] shadow-sm dark:shadow-2xl dark:shadow-black/50"
-            : "py-5 bg-transparent border-b border-transparent"
+            ? "py-3 bg-white/95 dark:bg-[#08090D]/90 backdrop-blur-xl border-b border-slate-200/80 dark:border-white/[0.08] shadow-sm dark:shadow-2xl dark:shadow-black/50"
+            : "py-4 bg-white/80 dark:bg-[#08090D]/70 backdrop-blur-md border-b border-slate-200/50 dark:border-white/[0.04]"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -67,8 +84,15 @@ export const Navbar: React.FC = () => {
               })}
             </nav>
 
-            {/* Right Action: Theme Switcher & Let's Talk CTA */}
+            {/* Right Action: Free Demo Badge + Theme Switcher & Let's Talk CTA */}
             <div className="hidden md:flex items-center gap-3">
+              <Link
+                href="/contact?demo=true"
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-brand-500/10 to-cyan-500/15 hover:from-brand-500/20 hover:to-cyan-500/25 border border-cyan-500/30 text-slate-900 dark:text-cyan-300 text-xs font-mono font-bold transition-all shadow-sm hover:scale-105"
+              >
+                <Sparkles size={13} className="text-cyan-600 dark:text-cyan-400" />
+                <span>Free Demo</span>
+              </Link>
               <ThemeToggle />
               <Button
                 href="/contact"
@@ -151,6 +175,13 @@ export const Navbar: React.FC = () => {
           </div>
 
           <div className="space-y-3 pt-6 border-t border-slate-200 dark:border-white/[0.08]">
+            <Link
+              href="/contact?demo=true"
+              className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-amber-500/15 via-teal-500/15 to-cyan-500/15 border border-amber-400/40 text-slate-900 dark:text-amber-300 font-bold text-xs uppercase font-mono tracking-wider flex items-center justify-center gap-2 shadow-sm text-center"
+            >
+              <Sparkles size={14} className="text-amber-400" />
+              <span>Book 100% Free Demo</span>
+            </Link>
             <Button
               href="/contact"
               variant="primary"

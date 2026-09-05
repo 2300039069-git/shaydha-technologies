@@ -195,6 +195,29 @@ export const PricingSection: React.FC = () => {
           </div>
         </div>
 
+        {/* Free Demo Highlight Callout Banner */}
+        <div className="mb-12 p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-amber-500/15 via-teal-500/15 to-brand-500/15 border border-amber-400/30 flex flex-col sm:flex-row items-center justify-between gap-4 max-w-5xl mx-auto shadow-lg">
+          <div className="flex items-center gap-3.5 text-center sm:text-left">
+            <div className="w-10 h-10 rounded-xl bg-amber-400/20 text-amber-300 border border-amber-400/40 flex items-center justify-center shrink-0 shadow-sm">
+              <Sparkles size={20} className="animate-pulse" />
+            </div>
+            <div>
+              <span className="text-xs font-mono uppercase tracking-wider text-amber-300 font-bold block">
+                ✨ 100% FREE DEMO AVAILABLE ON ALL TIERS
+              </span>
+              <p className="text-xs text-slate-300 mt-0.5">
+                Not sure which plan matches your project scope? Test-drive live interactive demos & review production architecture at zero cost.
+              </p>
+            </div>
+          </div>
+          <Link
+            href="/contact?demo=true"
+            className="shrink-0 px-5 py-2.5 rounded-full bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs uppercase tracking-wider transition-all shadow-md hover:scale-105 whitespace-nowrap"
+          >
+            Book Free Demo →
+          </Link>
+        </div>
+
         {/* 4 Gradient Price Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch max-w-7xl mx-auto">
           {plans.map((plan) => {

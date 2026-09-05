@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { ArrowRight, ArrowDown } from "lucide-react";
+import { ArrowRight, ArrowDown, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { InteractiveHeroCanvas } from "./InteractiveHeroCanvas";
@@ -20,11 +20,19 @@ export const Hero: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Left Hero Column */}
           <div className="lg:col-span-7 space-y-8 text-center lg:text-left">
-            {/* Availability Badge */}
-            <div className="inline-flex items-center">
-              <Badge variant="success" size="md" dot className="border-emerald-500/30 bg-emerald-50 text-emerald-800 dark:bg-emerald-950/30 dark:text-emerald-300 shadow-sm">
+            {/* Availability & Free Demo Badge Row */}
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3">
+              <Badge variant="success" size="md" dot className="border-emerald-500/30 bg-emerald-50 text-emerald-800 dark:bg-emerald-950/30 dark:text-emerald-300 shadow-sm font-semibold">
                 {SITE_CONFIG.contact.availability}
               </Badge>
+
+              <Link
+                href="/contact?demo=true"
+                className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-gradient-to-r from-amber-500/15 via-teal-500/15 to-cyan-500/15 hover:from-amber-500/25 hover:to-cyan-500/25 border border-amber-400/40 text-slate-900 dark:text-amber-300 text-xs font-mono font-bold shadow-sm transition-all hover:scale-105"
+              >
+                <Sparkles size={13} className="text-amber-400 animate-pulse" />
+                <span>100% FREE LIVE DEMO AVAILABLE</span>
+              </Link>
             </div>
 
             {/* Main Headline */}
@@ -52,22 +60,33 @@ export const Hero: React.FC = () => {
               >
                 Start a Project
               </Button>
+              <Link
+                href="/contact?demo=true"
+                className="w-full sm:w-auto px-7 py-3.5 rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-950 font-bold text-sm flex items-center justify-center gap-2 border border-slate-700 dark:border-white/20 hover:scale-105 transition-all shadow-md"
+              >
+                <Sparkles size={16} className="text-amber-400 dark:text-brand-600" />
+                <span>Book Free Live Demo →</span>
+              </Link>
               <Button
                 href="#work"
                 variant="secondary"
                 size="lg"
-                className="w-full sm:w-auto px-7 bg-white dark:bg-surface-100 text-slate-800 dark:text-slate-200 border-slate-200 dark:border-border-subtle shadow-sm"
+                className="w-full sm:w-auto px-6 bg-white dark:bg-surface-100 text-slate-800 dark:text-slate-200 border-slate-200 dark:border-border-subtle shadow-sm"
               >
                 Explore Our Work
               </Button>
             </div>
 
             {/* Trust Statement & Capabilities Bar */}
-            <div className="pt-6 border-t border-slate-200 dark:border-white/[0.08]">
-              <p className="text-xs uppercase tracking-widest text-slate-500 font-mono mb-3">
-                Core Specializations
-              </p>
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-2 text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300">
+            <div className="pt-6 border-t border-slate-200 dark:border-white/[0.08] space-y-3">
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-5 gap-y-1.5 text-xs font-mono text-emerald-700 dark:text-emerald-400 font-bold">
+                <span>✓ 100% Free Live Prototype Demo</span>
+                <span>✓ 2-Hour Review SLA</span>
+                <span>✓ Strict Mutual NDA</span>
+                <span>✓ Complete Code Ownership</span>
+              </div>
+
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-2 text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300 pt-1">
                 <span className="flex items-center gap-1.5 hover:text-slate-950 dark:hover:text-white transition-colors">
                   <span className="w-1.5 h-1.5 rounded-full bg-brand-500" />
                   Web Development

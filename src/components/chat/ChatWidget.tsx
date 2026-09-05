@@ -50,6 +50,11 @@ const FAQ_KNOWLEDGE_BASE: Record<
       "💰 **Pricing, IP & Security**:\n\n• **100% Client Code Ownership**: You own all source code, design assets, and intellectual property.\n• **Strict Mutual NDA**: We execute a legally binding NDA prior to deep technical architecture.\n• **Flexible Engagements**: Fixed-price MVP sprints (4–8 weeks), dedicated engineering pods, or agile time & materials.",
     followUpOptions: ["Submit my project details", "How fast will engineering reply?", "Our delivery process"],
   },
+  demo: {
+    answer:
+      "✨ **100% Free Live Architecture & Product Demo**:\n\n• **What You Get**: A 30-minute interactive walkthrough of our production codebases, live prototype demonstrations, and a technical feasibility assessment tailored to your initiative.\n• **Itemized Roadmap**: Itemized milestone plan & cost estimate delivered within **24 hours**.\n• **Zero Commitment**: 100% complimentary under mutual non-disclosure (NDA).",
+    followUpOptions: ["Submit my project details", "How fast will engineering reply?", "How does pricing work?"],
+  },
   process: {
     answer:
       "🚀 **5-Step Delivery Pipeline**:\n\n1. **Technical Discovery & Architecture Blueprint** (within 48h)\n2. **Interactive Figma UI/UX Prototype**\n3. **Agile 2-Week Sprints** with continuous staging deployments\n4. **Security Audit & Automated QA Testing**\n5. **Production Launch & 90-Day Post-Launch Warranty**",
@@ -390,6 +395,16 @@ export const ChatWidget: React.FC = () => {
                   Instant Answers & Project Actions:
                 </p>
                 <div className="grid grid-cols-1 gap-1.5">
+                  <button
+                    onClick={() =>
+                      handleSelectFaq("demo", "✨ Free Live Demo Available (How does it work?)")
+                    }
+                    className="flex items-center gap-2 text-xs bg-gradient-to-r from-amber-500/15 via-teal-500/15 to-cyan-500/15 hover:from-amber-500/25 hover:to-cyan-500/25 border border-amber-400/40 text-slate-900 dark:text-amber-300 px-3 py-2 rounded-xl transition-all text-left shadow-sm font-bold"
+                  >
+                    <Sparkles size={14} className="text-amber-400 shrink-0 animate-pulse" />
+                    <span>Free Live Demo Available (Book 30-Min Demo)</span>
+                  </button>
+
                   <button
                     onClick={() =>
                       handleSelectFaq("reply_time", "⏱ How fast will engineering reply?")

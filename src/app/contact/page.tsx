@@ -1,6 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
-import { Mail, Phone, MessageSquare, Clock, ArrowRight, ShieldCheck } from "lucide-react";
+import { Mail, Phone, MessageSquare, Clock, ArrowRight, ShieldCheck, Sparkles } from "lucide-react";
 import { MultiStepProjectForm } from "@/components/forms/MultiStepProjectForm";
 import { Button } from "@/components/ui/Button";
 import { SITE_CONFIG } from "@/config/site";
@@ -17,14 +17,20 @@ export default function ContactPage() {
       {/* Header Banner */}
       <section className="py-16 relative bg-white dark:bg-[#07080B] border-b border-slate-200 dark:border-white/[0.06] transition-colors duration-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-700 dark:text-brand-300 text-xs font-mono uppercase tracking-widest">
-            Direct Communication
+          <div className="flex items-center justify-center gap-2 flex-wrap">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-700 dark:text-brand-300 text-xs font-mono uppercase tracking-widest">
+              Direct Communication
+            </div>
+            <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-gradient-to-r from-amber-500/15 via-teal-500/15 to-cyan-500/15 border border-amber-400/40 text-slate-900 dark:text-amber-300 text-xs font-mono font-bold">
+              <Sparkles size={13} className="text-amber-400 animate-pulse" />
+              <span>100% FREE LIVE DEMO AVAILABLE</span>
+            </div>
           </div>
           <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-950 dark:text-white tracking-tight">
-            Let&apos;s Talk
+            Let&apos;s Talk & Schedule Your Free Demo
           </h1>
           <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 leading-relaxed font-normal">
-            Whether you have a fully scoped product brief or an early-stage concept, we are ready to analyze your requirements and provide clear technical direction.
+            Whether you need a live interactive prototype demo or have a fully scoped product brief, our lead architects will analyze your requirements and provide clear technical direction.
           </p>
         </div>
       </section>
@@ -34,6 +40,24 @@ export default function ContactPage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           {/* Left Column: Direct Communication Cards */}
           <div className="lg:col-span-5 space-y-6">
+            {/* Free Demo Highlight Box */}
+            <div className="p-7 rounded-3xl bg-gradient-to-br from-amber-500/10 via-slate-50 to-white dark:from-[#211a0f] dark:via-[#16141a] dark:to-[#0f1118] border border-amber-400/40 space-y-3.5 shadow-lg relative overflow-hidden">
+              <div className="absolute top-0 inset-x-8 h-[2px] bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500" />
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 rounded-2xl bg-amber-400/20 text-amber-500 dark:text-amber-300 flex items-center justify-center p-3 shadow-sm border border-amber-400/40">
+                  <Sparkles size={24} className="animate-pulse" />
+                </div>
+                <div>
+                  <h3 className="text-base font-bold text-slate-950 dark:text-white">Free Live Demo Included</h3>
+                  <span className="text-xs text-amber-700 dark:text-amber-300 font-mono font-bold">
+                    Zero Commitment • 30-Min Walkthrough
+                  </span>
+                </div>
+              </div>
+              <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-normal">
+                Every project application receives an optional <strong>100% Free Live Architecture & UI/UX Demo</strong>. We demonstrate relevant past codebases, test workflows, and answer all technical questions.
+              </p>
+            </div>
             {/* WhatsApp Highlight Box */}
             <div className="p-8 rounded-3xl bg-gradient-to-b from-emerald-50/90 via-emerald-50/50 to-white dark:from-[#0D2219] dark:to-[#0A140F] border border-emerald-300/90 dark:border-emerald-500/40 space-y-4 shadow-[0_4px_20px_rgba(16,185,129,0.12),inset_0_1px_0_0_rgba(255,255,255,0.95)] dark:shadow-[0_12px_36px_rgba(0,0,0,0.5),inset_0_1px_0_0_rgba(255,255,255,0.1)] relative overflow-hidden">
               <div className="absolute top-0 inset-x-8 h-[2px] bg-gradient-to-r from-transparent via-emerald-500/60 to-transparent" />
