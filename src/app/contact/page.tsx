@@ -1,6 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
-import { Mail, Phone, MessageSquare, MapPin, Clock, ArrowRight, ShieldCheck } from "lucide-react";
+import { Mail, Phone, MessageSquare, Clock, ArrowRight, ShieldCheck } from "lucide-react";
 import { MultiStepProjectForm } from "@/components/forms/MultiStepProjectForm";
 import { Button } from "@/components/ui/Button";
 import { SITE_CONFIG } from "@/config/site";
@@ -108,18 +108,6 @@ export default function ContactPage() {
                     </span>
                   </div>
                 </a>
-
-                <div className="flex items-start gap-4 p-4 rounded-2xl bg-slate-50/60 dark:bg-white/[0.02] border border-slate-200/80 dark:border-white/[0.05]">
-                  <div className="w-10 h-10 rounded-xl bg-slate-200/80 dark:bg-slate-800 text-slate-700 dark:text-slate-400 flex items-center justify-center shrink-0">
-                    <MapPin size={18} />
-                  </div>
-                  <div>
-                    <span className="text-xs text-slate-500 dark:text-slate-400 block font-mono">Headquarters</span>
-                    <span className="text-sm font-bold text-slate-950 dark:text-white">
-                      {SITE_CONFIG.contact.address}
-                    </span>
-                  </div>
-                </div>
 
                 <div className="flex items-start gap-4 p-4 rounded-2xl bg-slate-50/60 dark:bg-white/[0.02] border border-slate-200/80 dark:border-white/[0.05]">
                   <div className="w-10 h-10 rounded-xl bg-slate-200/80 dark:bg-slate-800 text-slate-700 dark:text-slate-400 flex items-center justify-center shrink-0">

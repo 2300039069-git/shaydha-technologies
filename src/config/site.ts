@@ -12,7 +12,6 @@ export const SITE_CONFIG = {
     phone: process.env.NEXT_PUBLIC_PHONE || "+91 75698 02300",
     phoneClean: "+917569802300",
     whatsappNumber: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "917569802300",
-    address: "Bengaluru & Hyderabad, India",
     workingHours: "Mon - Sat: 9:00 AM - 7:00 PM IST",
     availability: "Available for new projects",
   },

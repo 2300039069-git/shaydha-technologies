@@ -115,7 +115,7 @@ export async function sendCustomerAutoReplyEmail({
 
       <!-- Footer -->
       <div style="background: #050608; padding: 18px 24px; text-align: center; font-size: 11px; color: #64748b; border-top: 1px solid #151824;">
-        <p style="margin: 0 0 4px;"><strong>SHAYDHA TECHNOLOGIES</strong> • Bengaluru & Hyderabad, India</p>
+        <p style="margin: 0 0 4px;"><strong>SHAYDHA TECHNOLOGIES</strong> • Digital Solutions & Software Engineering</p>
         <p style="margin: 0;">Official Communications: <a href="mailto:${OFFICIAL_EMAIL}" style="color: #38bdf8; text-decoration: none;">${OFFICIAL_EMAIL}</a></p>
       </div>
     </div>

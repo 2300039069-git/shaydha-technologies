@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { ArrowUpRight, Mail, Phone, MessageSquare, MapPin, ShieldCheck } from "lucide-react";
+import { ArrowUpRight, Mail, Phone, MessageSquare, ShieldCheck } from "lucide-react";
 import { Logo } from "@/components/brand/Logo";
 import { SITE_CONFIG } from "@/config/site";
 import { SERVICES_DATA } from "@/data/services";
@@ -118,10 +118,6 @@ export const Footer: React.FC = () => {
                   <Phone size={15} className="text-brand-600 dark:text-brand-400 shrink-0" />
                   <span>{SITE_CONFIG.contact.phone}</span>
                 </a>
-              </li>
-              <li className="flex items-start gap-2.5 text-slate-500 pt-1">
-                <MapPin size={15} className="text-slate-400 shrink-0 mt-0.5" />
-                <span className="text-xs">{SITE_CONFIG.contact.address}</span>
               </li>
             </ul>
           </div>
