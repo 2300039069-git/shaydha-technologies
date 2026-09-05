@@ -17,6 +17,8 @@ import {
   ShieldCheck,
   Clock,
   Check,
+  Star,
+  Flame,
 } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { SITE_CONFIG } from "@/config/site";
@@ -36,6 +38,11 @@ const budgetTierCards = [
     label: "Starter / MVP",
     range: "₹10,000 – ₹25,000",
     badge: "Quick Launch",
+    stars: 3,
+    gradientHeader: "bg-gradient-to-br from-[#d946ef] via-[#c026d3] to-[#9333ea]",
+    accentColor: "#d946ef",
+    activeBorder: "border-[#d946ef]",
+    activeRing: "ring-[#d946ef]/30 shadow-[0_0_25px_rgba(217,70,239,0.22)]",
     icon: Zap,
     desc: "Validation prototypes, fast landing pages & single MVPs",
     turnaround: "1 - 2 weeks",
@@ -45,6 +52,11 @@ const budgetTierCards = [
     label: "Growth Platform",
     range: "₹25,000 – ₹50,000",
     badge: "★ Most Popular",
+    stars: 4,
+    gradientHeader: "bg-gradient-to-br from-[#14b8a6] via-[#0d9488] to-[#0284c7]",
+    accentColor: "#14b8a6",
+    activeBorder: "border-[#14b8a6]",
+    activeRing: "ring-[#14b8a6]/30 shadow-[0_0_25px_rgba(20,184,166,0.3)]",
     icon: Sparkles,
     desc: "Full-stack web apps, customer portals, custom API & database workflows",
     turnaround: "2 - 4 weeks",
@@ -55,6 +67,11 @@ const budgetTierCards = [
     label: "Scale & Mobile",
     range: "₹50,000 – ₹1,00,000",
     badge: "High Velocity",
+    stars: 4,
+    gradientHeader: "bg-gradient-to-br from-[#6366f1] via-[#8b5cf6] to-[#4f46e5]",
+    accentColor: "#6366f1",
+    activeBorder: "border-[#6366f1]",
+    activeRing: "ring-[#6366f1]/30 shadow-[0_0_25px_rgba(99,102,241,0.25)]",
     icon: Layers,
     desc: "Cross-platform iOS/Android apps, intelligent AI/RAG integrations",
     turnaround: "4 - 8 weeks",
@@ -64,6 +81,11 @@ const budgetTierCards = [
     label: "Enterprise Custom",
     range: "₹1,00,000+",
     badge: "Mission Critical",
+    stars: 5,
+    gradientHeader: "bg-gradient-to-br from-[#fbbf24] via-[#f59e0b] to-[#ea580c]",
+    accentColor: "#f59e0b",
+    activeBorder: "border-[#f59e0b]",
+    activeRing: "ring-[#f59e0b]/30 shadow-[0_0_25px_rgba(245,158,11,0.25)]",
     icon: ShieldCheck,
     desc: "Multi-tenant cloud platforms, custom ERPs, 24/7 dedicated engineering pods",
     turnaround: "Custom Sprints",
@@ -73,6 +95,11 @@ const budgetTierCards = [
     label: "Custom Consultation",
     range: "Flexible / Tailored",
     badge: "Free Discovery",
+    stars: 5,
+    gradientHeader: "bg-gradient-to-br from-slate-700 via-slate-800 to-slate-900",
+    accentColor: "#38bdf8",
+    activeBorder: "border-sky-400",
+    activeRing: "ring-sky-400/30",
     icon: MessageSquare,
     desc: "Discuss your project with our engineering directors for a custom breakdown",
     turnaround: "2-Hour Review SLA",
@@ -391,84 +418,139 @@ export const MultiStepProjectForm: React.FC = () => {
           </div>
 
           <div className="space-y-6">
-            {/* Interactive Pricing Range Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-              {budgetTierCards.map((tier) => {
+            {/* 4 Gradient Wave Budget Cards Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+              {budgetTierCards.slice(0, 4).map((tier) => {
                 const isSelected = formData.budget === tier.id;
-                const Icon = tier.icon;
                 return (
                   <button
                     type="button"
                     key={tier.id}
                     onClick={() => setFormData({ ...formData, budget: tier.id })}
-                    className={`p-4 sm:p-5 rounded-2xl border text-left transition-all duration-200 select-none relative overflow-hidden group flex flex-col justify-between ${
+                    className={`rounded-[26px] bg-white dark:bg-[#111420] border text-left transition-all duration-300 select-none relative overflow-hidden flex flex-col justify-between group cursor-pointer ${
                       isSelected
-                        ? "bg-gradient-to-br from-brand-500/10 via-slate-50 to-white dark:from-brand-600/25 dark:via-[#161a2c] dark:to-[#0f121e] border-2 border-brand-500 dark:border-cyan-400 ring-4 ring-brand-500/15 dark:ring-cyan-400/20 shadow-[0_0_25px_rgba(99,102,241,0.2),0_8px_20px_-4px_rgba(0,0,0,0.08)] scale-[1.01] -translate-y-0.5 z-10"
-                        : "bg-slate-50/80 hover:bg-slate-100/90 dark:bg-[#111422] dark:hover:bg-[#161a2c] border-slate-200/90 dark:border-white/[0.08] hover:border-brand-500/40 dark:hover:border-white/[0.18] shadow-sm hover:-translate-y-0.5"
+                        ? `border-2 ${tier.activeBorder} ring-4 ${tier.activeRing} shadow-xl scale-[1.01] -translate-y-1 z-10`
+                        : "border-slate-200 dark:border-white/[0.08] hover:border-slate-300 dark:hover:border-white/20 hover:-translate-y-0.5 shadow-sm dark:shadow-md"
                     }`}
                   >
-                    {/* Top Specular Glow for Active Card */}
-                    {isSelected && (
-                      <div className="absolute top-0 inset-x-4 h-[2px] bg-gradient-to-r from-brand-500 via-cyan-400 to-indigo-500" />
-                    )}
+                    {/* Top Gradient Header with Double Wave Cutout */}
+                    <div className={`relative pt-5 pb-10 px-5 text-center ${tier.gradientHeader} overflow-hidden`}>
+                      {/* Subtle Shimmer Texture */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-white/15 pointer-events-none" />
 
-                    <div>
-                      {/* Top Row: Icon + Badge + Radio Checkmark */}
-                      <div className="flex items-center justify-between gap-2 mb-3">
-                        <div className="flex items-center gap-2">
-                          <div className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 transition-colors ${
-                            isSelected
-                              ? "bg-brand-600 text-white shadow-md shadow-brand-500/30"
-                              : "bg-white dark:bg-white/[0.06] text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-white/10"
-                          }`}>
-                            <Icon size={18} />
-                          </div>
-                          <span className={`text-[10px] font-mono uppercase px-2 py-0.5 rounded-md font-bold ${
-                            isSelected
-                              ? "bg-brand-100 dark:bg-cyan-500/20 text-brand-800 dark:text-cyan-300 border border-brand-200 dark:border-cyan-400/30"
-                              : tier.popular
-                              ? "bg-amber-100 dark:bg-amber-500/20 text-amber-800 dark:text-amber-300 border border-amber-200 dark:border-amber-400/30 font-bold"
-                              : "bg-slate-200/60 dark:bg-white/[0.05] text-slate-600 dark:text-slate-400"
-                          }`}>
-                            {tier.badge}
-                          </span>
-                        </div>
+                      {/* Header Top Row: Floating Badge + Radio Checkmark */}
+                      <div className="relative z-10 flex items-center justify-between mb-2">
+                        <span className="inline-flex items-center gap-1 text-[10px] font-mono uppercase px-2.5 py-0.5 rounded-full font-black tracking-wider bg-slate-950/80 text-white border border-white/20 backdrop-blur-md shadow-sm">
+                          {tier.popular && <Flame size={11} className="text-amber-300 fill-amber-300" />}
+                          {tier.badge}
+                        </span>
 
-                        {/* Radio Checkmark */}
+                        {/* Selection Radio Circle */}
                         <div className={`w-5 h-5 rounded-full flex items-center justify-center transition-all ${
                           isSelected
-                            ? "bg-brand-600 dark:bg-cyan-500 text-white scale-110 shadow-sm"
-                            : "border-2 border-slate-300 dark:border-white/20"
+                            ? "bg-slate-950 text-white ring-2 ring-white/60 shadow-md scale-110"
+                            : "bg-slate-950/30 border-2 border-slate-950/40"
                         }`}>
                           {isSelected && <Check size={12} className="stroke-[3]" />}
                         </div>
                       </div>
 
-                      {/* Title & Range */}
-                      <div className="space-y-1">
-                        <h4 className="text-sm font-bold text-slate-950 dark:text-white group-hover:text-brand-600 dark:group-hover:text-cyan-300 transition-colors">
-                          {tier.label}
-                        </h4>
-                        <div className="text-base sm:text-lg font-extrabold text-slate-950 dark:text-white font-mono tracking-tight">
-                          {tier.range}
-                        </div>
-                        <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed pt-1">
-                          {tier.desc}
-                        </p>
+                      {/* Tier Name */}
+                      <h4 className="relative z-10 text-base font-black uppercase tracking-[0.15em] text-slate-950 font-sans">
+                        {tier.label}
+                      </h4>
+
+                      {/* Star Rating */}
+                      <div className="relative z-10 flex items-center justify-center gap-1 my-1.5">
+                        {[...Array(5)].map((_, i) => (
+                          <Star
+                            key={i}
+                            size={12}
+                            className={`${
+                              i < tier.stars
+                                ? "text-slate-950 fill-slate-950"
+                                : "text-slate-950/20 fill-slate-950/20"
+                            } transition-transform group-hover:scale-110`}
+                          />
+                        ))}
+                      </div>
+
+                      {/* Big Bold Price Range */}
+                      <div className="relative z-10 text-xl sm:text-2xl font-black text-slate-950 font-mono tracking-tight">
+                        {tier.range}
+                      </div>
+
+                      {/* Organic Layered Double Wave */}
+                      <div className="absolute -bottom-[1px] left-0 right-0 w-full overflow-hidden leading-none pointer-events-none">
+                        {/* Shadow wave */}
+                        <svg viewBox="0 0 500 90" preserveAspectRatio="none" className="w-full h-8 text-black/30 fill-current opacity-60">
+                          <path d="M0,25 C130,80 340,5 500,60 L500,90 L0,90 Z"></path>
+                        </svg>
+                        {/* Body wave matching card body */}
+                        <svg viewBox="0 0 500 90" preserveAspectRatio="none" className="w-full h-8 text-white dark:text-[#111420] fill-current -mt-7">
+                          <path d="M0,45 C150,90 350,15 500,60 L500,90 L0,90 Z"></path>
+                        </svg>
                       </div>
                     </div>
 
-                    {/* Footer Turnaround Pill */}
-                    <div className="mt-3.5 pt-2.5 border-t border-slate-200/60 dark:border-white/[0.06] flex items-center justify-between text-[11px] font-mono text-slate-500 dark:text-slate-400">
-                      <span className="flex items-center gap-1">
-                        <Clock size={12} className="text-brand-500 dark:text-cyan-400" /> SLA Turnaround:
-                      </span>
-                      <span className="font-bold text-slate-900 dark:text-slate-200">{tier.turnaround}</span>
+                    {/* Card Content Body */}
+                    <div className="p-4 sm:p-5 pt-2 flex-1 flex flex-col justify-between space-y-3 bg-white dark:bg-[#111420]">
+                      <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-medium">
+                        {tier.desc}
+                      </p>
+
+                      {/* SLA Turnaround Footer */}
+                      <div className="pt-2.5 border-t border-slate-100 dark:border-white/[0.06] flex items-center justify-between text-[11px] font-mono text-slate-500 dark:text-slate-400">
+                        <span className="flex items-center gap-1.5 font-medium">
+                          <Clock size={12} style={{ color: tier.accentColor }} /> SLA Turnaround:
+                        </span>
+                        <span className="font-bold text-slate-900 dark:text-white px-2 py-0.5 rounded-md bg-slate-100 dark:bg-white/[0.05] border border-slate-200/60 dark:border-white/[0.06]">
+                          {tier.turnaround}
+                        </span>
+                      </div>
                     </div>
                   </button>
                 );
               })}
             </div>
+
+            {/* 5th Option: Custom Consultation / Discovery Banner */}
+            {budgetTierCards[4] && (
+              <button
+                type="button"
+                onClick={() => setFormData({ ...formData, budget: budgetTierCards[4].id })}
+                className={`w-full p-4 rounded-2xl border text-left transition-all duration-200 select-none flex items-center justify-between gap-4 group ${
+                  formData.budget === budgetTierCards[4].id
+                    ? "bg-brand-50/80 border-2 border-brand-500 ring-4 ring-brand-500/20 dark:bg-brand-600/20 dark:border-cyan-400 dark:ring-cyan-400/20 shadow-md"
+                    : "bg-slate-50/70 dark:bg-[#111420] border-slate-200 dark:border-white/[0.08] hover:border-slate-300 dark:hover:border-white/20 shadow-sm"
+                }`}
+              >
+                <div className="flex items-center gap-3.5">
+                  <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-white/[0.06] border border-slate-200 dark:border-white/10 flex items-center justify-center shrink-0 text-slate-700 dark:text-cyan-400">
+                    <MessageSquare size={18} />
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-sm font-bold text-slate-950 dark:text-white">{budgetTierCards[4].label}</span>
+                      <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded-md bg-cyan-500/15 text-cyan-700 dark:text-cyan-300 border border-cyan-500/30 font-bold">
+                        {budgetTierCards[4].badge}
+                      </span>
+                    </div>
+                    <p className="text-xs text-slate-600 dark:text-slate-400 mt-0.5">
+                      {budgetTierCards[4].desc}
+                    </p>
+                  </div>
+                </div>
+
+                <div className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 transition-all ${
+                  formData.budget === budgetTierCards[4].id
+                    ? "bg-brand-600 dark:bg-cyan-500 text-white ring-2 ring-brand-400/40 shadow-sm scale-110"
+                    : "border-2 border-slate-300 dark:border-white/20"
+                }`}>
+                  {formData.budget === budgetTierCards[4].id && <Check size={12} className="stroke-[3]" />}
+                </div>
+              </button>
+            )}
 
             {/* Target Timeline Section */}
             <div className="pt-2 space-y-3">
